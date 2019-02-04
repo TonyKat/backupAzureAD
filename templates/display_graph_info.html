@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Here is the data from Microsoft Graph !!</title>
+</head>
+<body>
+<p1><b>Users/Groups Data:</b> </p1>
+<table>
+{% for key, value in graph_data.items() %}
+   <tr>
+        <th> {{ key }} </th>
+        {% if key != '@odata.context' %}
+            {% for val in value %}
+                <tr>
+                    {% for k, v in val.items() %}
+                        <th> {{ k }}</th>
+                        <td> {{ v }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        {% else %}
+            <td> {{ value }} </td>
+        {% endif %}
+   </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
