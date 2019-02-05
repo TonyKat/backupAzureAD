@@ -84,8 +84,6 @@ def graphcall():
         newfilezip.writestr(path + '_users.json', json.dumps(graph_data_users))
         newfilezip.writestr(path + '_groups.json', json.dumps(graph_data_groups))
 
-    print(graph_data_users)
-    print(graph_data_groups)
     if 'error' in dict(graph_data_users).keys():
         return flask.render_template_string('<div>{}</div>'.format(str(graph_data_users)))
     else:
